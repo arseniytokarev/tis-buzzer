@@ -8,7 +8,6 @@ import axios from 'axios';
 import Player from '../components/Player';
 import Host from '../components/Host';
 import AllUsers from '../components/AllUsers';
-import BuzzedUsers from '../components/BuzzedUsers';
 import buzzerSound from '../assets/buzzersound.mp3';
 
 let socket;
