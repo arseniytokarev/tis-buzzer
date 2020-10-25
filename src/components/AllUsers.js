@@ -18,7 +18,7 @@ function AllUsers({ users }) {
         )}
         <div className='users'>
           {blueUsers.map((user, i) => (
-            <p className='blue-user text-primary pb-0'>{user.name}</p>
+            <p className='blue-user text-primary pb-0 mb-1'>{user.name}</p>
           ))}
         </div>
       </div>

@@ -22,8 +22,8 @@ function Room(props) {
   });
 
   function buzzedClass() {
-    if (room.buzzed.team === 'Red') return 'text-danger';
-    if (room.buzzed.team === 'Blue') return 'text-primary';
+    if (room.buzzed.team === 'Red') return 'text-danger mt-1';
+    if (room.buzzed.team === 'Blue') return 'text-primary mt-1';
   }
 
   const state = props.location.state;
@@ -139,7 +139,7 @@ function Room(props) {
 
       <AllUsers users={users} />
       <div className='center'>
-        <h4>Buzzed</h4>
+        <h4 className='mb-1'>Buzzed</h4>
         {room.buzzed !== undefined && (
           <p className={buzzedClass()}>{room.buzzed.name}</p>
         )}

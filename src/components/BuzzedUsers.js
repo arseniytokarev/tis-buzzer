@@ -4,7 +4,7 @@ function BuzzedUsers({ buzzers }) {
   return (
     <div class='mt-4'>
       {buzzers.map((buzzer, i) => (
-        <p className='mt-1'>{buzzer.name}</p>
+        <p className='mt-2'>{buzzer.name}</p>
       ))}
     </div>
   );
