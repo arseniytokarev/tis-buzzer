@@ -2,9 +2,9 @@ import React from 'react';
 
 function BuzzedUsers({ buzzers }) {
   return (
-    <div class=''>
+    <div class='mt-4'>
       {buzzers.map((buzzer, i) => (
-        <p className=''>{buzzer.name}</p>
+        <p className='mt-1'>{buzzer.name}</p>
       ))}
     </div>
   );

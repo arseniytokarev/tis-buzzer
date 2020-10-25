@@ -9,7 +9,6 @@ import Player from '../components/Player';
 import Host from '../components/Host';
 import AllUsers from '../components/AllUsers';
 import BuzzedUsers from '../components/BuzzedUsers';
-import Timer from '../components/Timer';
 import buzzerSound from '../assets/buzzersound.mp3';
 
 let socket;
@@ -111,13 +110,14 @@ function Room(props) {
 
   return (
     <div>
-      <h4 className='center mb-4'>Room Name: {room.name}</h4>
+      <h4 className='center mb-2'>Room Name: {room.name}</h4>
       <div className='center'>
         <p className='text-danger mb-1'>Red points: {room.red}</p>
         <p className='text-primary mb-3'>Blue points: {room.blue}</p>
       </div>
-      <div className='controls center mb-4'>
-        {!isPlayer && (
+
+      {!isPlayer && (
+        <div className='controls center mb-4'>
           <Host
             locked={room.locked}
             handleClear={handleClear}
@@ -128,8 +128,9 @@ function Room(props) {
             addRed={addRed}
             minusRed={minusRed}
           />
-        )}
-      </div>
+        </div>
+      )}
+
       {isPlayer && (
         <div className='center mb-3'>
           <Player handleBuzz={handleBuzz} locked={room.locked} />

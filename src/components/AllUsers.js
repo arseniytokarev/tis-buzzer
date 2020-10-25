@@ -6,11 +6,11 @@ function AllUsers({ users }) {
 
   return (
     <div className='all-users'>
-      <h4 className='mb-3'>All Players</h4>
+      <h4 className='mb-1'>All Players</h4>
       <div>
         <div className='users'>
           {redUsers.map((user, i) => (
-            <p className='red-user text-danger pb-0'>{user.name}</p>
+            <p className='red-user text-danger pb-0 mb-1'>{user.name}</p>
           ))}
         </div>
         {!(blueUsers.length === 0 || redUsers.length === 0) && (
