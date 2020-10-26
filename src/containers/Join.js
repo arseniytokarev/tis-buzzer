@@ -12,6 +12,7 @@ function Join(props) {
 
   const handleJoin = async e => {
     e.preventDefault();
+    setMessage('');
 
     try {
       if (!name || !room) return setMessage('Please enter all fields');
@@ -66,8 +67,8 @@ function Join(props) {
         </select>
       </div>
 
-      {message && <p className='mt-3 text-danger'>{message}</p>}
-      {loading && <p className='mt-3'>Loading...</p>}
+      {message && <p className='mb-3 text-danger'>{message}</p>}
+      {loading && <p className='mb-3'>Loading...</p>}
       <button type='submit' className='btn btn-success' onClick={handleJoin}>
         Join
       </button>

@@ -10,6 +10,7 @@ function Create(props) {
 
   const handleCreate = async e => {
     e.preventDefault();
+    setMessage('');
 
     try {
       if (!room) return setMessage('Room cannot be blank');
