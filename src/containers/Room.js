@@ -109,7 +109,7 @@ function Room(props) {
 
   return (
     <div>
-      <h4 className='center mb-2'>Room Name: {room.name}</h4>
+      <h4 className='center mb-2'>{state.room}</h4>
       <div className='center'>
         <p className='text-danger mb-1'>Red points: {room.red}</p>
         <p className='text-primary mb-3'>Blue points: {room.blue}</p>

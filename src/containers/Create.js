@@ -6,18 +6,22 @@ import { endpoint } from '../config';
 function Create(props) {
   const [room, setRoom] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleCreate = async e => {
     e.preventDefault();
 
     try {
       if (!room) return setMessage('Room cannot be blank');
+      setLoading(true);
       const res = await axios.post(endpoint + '/create', { room });
+      setLoading(false);
       props.history.push({
         pathname: '/room',
         state: { room },
       });
     } catch (error) {
+      setLoading(false);
       setMessage(error.response.data);
     }
   };
@@ -36,13 +40,14 @@ function Create(props) {
         />
       </div>
 
-      <button type='submit' class='btn btn-primary' onClick={handleCreate}>
+      <button type='submit' class='btn btn-success' onClick={handleCreate}>
         Create
       </button>
-      <Link to='/' className='float-right'>
+      <Link to='/' className='float-right link'>
         Join a room
       </Link>
       {message && <p className='mt-3 text-danger'>{message}</p>}
+      {loading && <p className='mt-3'>Loading...</p>}
     </form>
   );
 }

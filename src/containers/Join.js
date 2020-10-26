@@ -7,6 +7,7 @@ function Join(props) {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
   const [team, setTeam] = useState('Red');
+  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
   const handleJoin = async e => {
@@ -14,13 +15,16 @@ function Join(props) {
 
     try {
       if (!name || !room) return setMessage('Please enter all fields');
+      setLoading(true);
       let player = { name, room, team };
       const res = await axios.post(endpoint + '/join', { player });
+      setLoading(false);
       props.history.push({
         pathname: '/room',
         state: player,
       });
     } catch (error) {
+      setLoading(false);
       setMessage(error.response.data);
     }
   };
@@ -63,10 +67,11 @@ function Join(props) {
       </div>
 
       {message && <p className='mt-3 text-danger'>{message}</p>}
-      <button type='submit' className='btn btn-primary' onClick={handleJoin}>
+      {loading && <p className='mt-3'>Loading...</p>}
+      <button type='submit' className='btn btn-success' onClick={handleJoin}>
         Join
       </button>
-      <Link to='/create' className='float-right'>
+      <Link to='/create' className='float-right link'>
         Create room
       </Link>
     </form>

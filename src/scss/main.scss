@@ -25,6 +25,10 @@ div {
   text-align: center;
 }
 
+.link:hover {
+  text-decoration: none;
+}
+
 .button:focus {
   outline: none;
   border: none;
@@ -67,6 +71,12 @@ div {
     }
   }
 }
+@media (min-width: 800px) {
+  * {
+    font-size: 17px;
+  }
+}
+
 @media (max-width: 450px) {
   form {
     width: 100%;
